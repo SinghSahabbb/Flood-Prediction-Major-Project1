@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn import preprocessing
 from sklearn import model_selection,neighbors
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
 data = pd.read_csv(r"C:\Users\khyat\Downloads\kerala.csv")
 data.head()
 
@@ -31,3 +32,15 @@ x_train.head()
 y_train.head()
 
 #KNN Algorithms
+clf = neighbors.KNeighborsClassifier()
+knn_clf = clf.fit(x_train,y_train)
+
+y_predict = knn_clf.predict(x_test)
+print('predicted chances of flood')
+print(y_predict)
+
+print("actual values of floods:")
+print(y_test)
+
+knn_accuracy = cross_val_score(knn_clf,x_test,y_test,cv=3,scoring='accuracy',n_jobs=-1)
+knn_accuracy.mean()
