@@ -11,7 +11,7 @@ This interface enables users to make informed decisions and take preventive meas
 The outcomes of this major project have the potential to significantly improve flood preparedness and response, ultimately saving lives and minimizing the economic and environmental impact of flooding. 
 As the project advances, it paves the way for more resilient and data-driven flood management strategies in an era of increasing climate variability and extreme weather events.
 
-STEPS EXPLAINATION:
+############STEPS EXPLAINATION: #############
 The first step involves gathering a dataset of monthly rainfall and relevant features like river levels, soil moisture, and topography. 
 This data should be cleaned, ensuring there are no missing values or outliers. 
 After preprocessing, the dataset is split into training and testing sets. Next, a selection of machine learning algorithms, such as Random Forest, Support Vector Machines, and Gradient Boosting, is trained on the training data and evaluated on the testing set using appropriate metrics like Mean Absolute Error or classification metrics. 
