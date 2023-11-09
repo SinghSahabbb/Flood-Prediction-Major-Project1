@@ -44,3 +44,5 @@ print(y_test)
 
 knn_accuracy = cross_val_score(knn_clf,x_test,y_test,cv=3,scoring='accuracy',n_jobs=-1)
 knn_accuracy.mean()
+
+#Logistic Regression
