@@ -54,3 +54,8 @@ from sklearn.linear_model import LogisticRegression
 
 lr = LogisticRegression()
 lr_clf = lr.fit(x_train_std,y_train)
+y_predict = lr_clf.predict(x_test_std)
+print('Predicted chances of flood')
+print(y_predict)
+print('Actual chances of flood')
+print(y_test.values)
