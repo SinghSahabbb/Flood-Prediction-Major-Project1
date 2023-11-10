@@ -46,3 +46,11 @@ knn_accuracy = cross_val_score(knn_clf,x_test,y_test,cv=3,scoring='accuracy',n_j
 knn_accuracy.mean()
 
 #Logistic Regression
+x_train_std = minmax.fit_transform(x_train)
+x_test_std = minmax.transform(x_test)
+
+from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import LogisticRegression
+
+lr = LogisticRegression()
+lr_clf = lr.fit(x_train_std,y_train)
