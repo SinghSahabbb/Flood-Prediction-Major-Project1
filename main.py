@@ -59,3 +59,9 @@ print('Predicted chances of flood')
 print(y_predict)
 print('Actual chances of flood')
 print(y_test.values)
+
+from sklearn.metrics import accuracy_score,recall_score,roc_auc_score,confusion_matrix
+print("\naccuracy score: %f"%(accuracy_score(y_test,y_predict)*100))
+print("recall score: %f"%(recall_score(y_test,y_predict)*100))
+print("roc score: %f"%(roc_auc_score(y_test,y_predict)*100))
+lr_accuracy = cross_val_score(lr_clf,x_test_std,y_test,cv=3,scoring='accuracy',n_jobs=-1)
