@@ -6,6 +6,8 @@ from sklearn import preprocessing
 from sklearn import model_selection,neighbors
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
+from sklearn.tree import DecisionTreeClassifier
+
 data = pd.read_csv(r"C:\Users\khyat\Downloads\kerala.csv")
 data.head()
 
@@ -65,3 +67,10 @@ print("\naccuracy score: %f"%(accuracy_score(y_test,y_predict)*100))
 print("recall score: %f"%(recall_score(y_test,y_predict)*100))
 print("roc score: %f"%(roc_auc_score(y_test,y_predict)*100))
 lr_accuracy = cross_val_score(lr_clf,x_test_std,y_test,cv=3,scoring='accuracy',n_jobs=-1)
+
+#Decision Tree classification
+dtc_clf = DecisionTreeClassifier()
+dtc_clf.fit(x_train,y_train)
+dtc_clf_acc = cross_val_score(dtc_clf,x_train_std,y_train,cv=3,scoring="accuracy",n_jobs=-1)
+dtc_clf_acc
+
