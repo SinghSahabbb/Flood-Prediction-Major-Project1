@@ -68,3 +68,12 @@ dtc_clf.fit(x_train,y_train)
 dtc_clf_acc = cross_val_score(dtc_clf,x_train_std,y_train,cv=3,scoring="accuracy",n_jobs=-1)
 dtc_clf_acc
 
+y_pred = dtc_clf.predict(x_test)
+print(y_pred)
+
+print("actual values :")
+print(y_test.values)
+print("\naccuracy score:%f"%(accuracy_score(y_test,y_pred)*100))
+print("recall score:%f"%(recall_score(y_test,y_pred)*100))
+print("roc score:%f"%(roc_auc_score(y_test,y_pred)*100))
+
