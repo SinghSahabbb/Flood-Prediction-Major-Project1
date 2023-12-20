@@ -83,3 +83,16 @@ print("\naccuracy score:%f"%(accuracy_score(y_test,y_pred)*100))
 print("recall score:%f"%(recall_score(y_test,y_pred)*100))
 print("roc score:%f"%(roc_auc_score(y_test,y_pred)*100))
 
+from sklearn.ensemble import RandomForestClassifier
+rmf = RandomForestClassifier(max_depth=3,random_state=0)
+rmf_clf = rmf.fit(x_train,y_train)
+rmf_clf
+rmf_clf_acc = cross_val_score(rmf_clf,x_train_std,y_train,cv=3,scoring="accuracy",n_jobs=-1)
+#rmf_proba = cross_val_predict(rmf_clf,x_train_std,y_train,cv=3,method='predict_proba')
+rmf_clf_acc
+y_pred = rmf_clf.predict(x_test)
+from sklearn.metrics import accuracy_score,recall_score,roc_auc_score,confusion_matrix
+print("\naccuracy score:%f"%(accuracy_score(y_test,y_pred)*100))
+print("recall score:%f"%(recall_score(y_test,y_pred)*100))
+print("roc score:%f"%(roc_auc_score(y_test,y_pred)*100))
+
