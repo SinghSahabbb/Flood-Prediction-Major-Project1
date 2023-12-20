@@ -90,4 +90,20 @@ from sklearn.metrics import accuracy_score,recall_score,roc_auc_score,confusion_
 print("\naccuracy score:%f"%(accuracy_score(y_test,y_pred)*100))
 print("recall score:%f"%(recall_score(y_test,y_pred)*100))
 print("roc score:%f"%(roc_auc_score(y_test,y_pred)*100))
-
+#ensemble learning
+from sklearn.ensemble import VotingClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+log_clf = LogisticRegression(solver="liblinear", random_state=42)
+rnd_clf = RandomForestClassifier(n_estimators=10, random_state=42)
+knn_clf = KNeighborsClassifier()
+voting = VotingClassifier(
+    estimators=[('lr', log_clf), ('rf', rnd_clf), ('knn', knn_clf)],
+    voting='hard')
+voting_clf = voting.fit(x_train, y_train)
+from sklearn.metrics import accuracy_score
+for clf in (log_clf, rnd_clf, knn_clf, voting_clf):
+    clf.fit(x_train, y_train)
+    y_pred = clf.predict(x_test)
+    print(clf._class.name_, accuracy_score(y_test, y_pred))
