@@ -90,7 +90,7 @@ from sklearn.metrics import accuracy_score,recall_score,roc_auc_score,confusion_
 print("\naccuracy score:%f"%(accuracy_score(y_test,y_pred)*100))
 print("recall score:%f"%(recall_score(y_test,y_pred)*100))
 print("roc score:%f"%(roc_auc_score(y_test,y_pred)*100))
-
+#ensemble learning
 from sklearn.ensemble import VotingClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
