@@ -83,6 +83,7 @@ print("\naccuracy score:%f"%(accuracy_score(y_test,y_pred)*100))
 print("recall score:%f"%(recall_score(y_test,y_pred)*100))
 print("roc score:%f"%(roc_auc_score(y_test,y_pred)*100))
 
+#random forest
 from sklearn.ensemble import RandomForestClassifier
 rmf = RandomForestClassifier(max_depth=3,random_state=0)
 rmf_clf = rmf.fit(x_train,y_train)
